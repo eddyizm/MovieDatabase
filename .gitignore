@@ -8,6 +8,9 @@ venv/
 .vscode
 db.sqlite3
 .env
-.venvENV/
+.venv
+ENV/
 *.pyc
 *.log
+env/
+*.cfg
