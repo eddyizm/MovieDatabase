@@ -1,11 +1,17 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
-<form action="moviemanagerView" method="post">
+<!-- Just adding some content to break out the object via django templating -->
+<div class="container">
+  <form action="moviemanagerView" method="post">
     {%csrf_token%}
-    {{form.as_ul}}
-    <input type="submit" value="OK">
-</form>
-
+      <div class = "form-group">
+      {{ form|crispy }}
+      </div>
+    <button type="submit" class="butn btn-success">Ok</button>
+  </form>
+</div>
 {% endblock %}
