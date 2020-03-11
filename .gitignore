@@ -15,4 +15,5 @@ ENV/
 env/
 *.cfg
 lib64
+moviedb_project/moviemanager/migrations
 share/
