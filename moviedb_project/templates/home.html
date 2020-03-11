@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-{{value|linebreaks}}
-{{request.user}}
+<div class ="col-md-6">
+    <h2> {{ text }} </h2>
+    <table>
+    {% for movie in movie_database %}
+      <tr><td>{{movie.id}}. {{ movie.movie_title }} : {{ movie.year }}</tr></td>
+    {% endfor %}
+  </table>
+</div>
+<!--{{value|linebreaks}}
+{{request.user}}-->
 
 {% endblock %}
 

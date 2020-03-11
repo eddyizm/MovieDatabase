@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from moviemanager.views import (
-    moviemanagerView, about_page)
+    home, create, about_page)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('moviemanager/', include('moviemanager.urls')),
-    path('about/',about_page)
+    path('home/', include('moviemanager.urls')),
+    path('about/',about_page),
+    path('create/',include('moviemanager.urls'))
 ]
