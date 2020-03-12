@@ -31,12 +31,11 @@ def create(request):
             with open('moviedatabase.json','w') as outfile:
                 json.dump(data,outfile)
             # This is just to show a response to the user. You can render another form here instead of the default form. This is your chance to return a templated list instead but this should get you on the right road.
-            return HttpResponse(str(data))
+            #return HttpResponse(str(data))
             #return render (request, 'form.html',{'form':form})
-    elif request.method == "GET":
+    if request.method == "GET":
         form = MovieForm()
-        return redirect (request, 'form.html',{'form':form})
-    return redirect (request, 'form.html',{'form':form})
+    return render(request, 'form.html',{'form':form})
 
 
 def home(request):
