@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+<!--{% load render_table from django_tables2 %}-->
 <div class ="col-md-6">
     <h2> {{ text }} </h2>
     <table>
+    </table>
+    <!--
+    {% render_table movie_database %}
+    {% render_table CustomMovieTable %}
+    {% for movie in movie_database %}
+        <tr><td> Action </td></tr>
+    {% endfor %}-->
+    <!--<table>
     {% for movie in movie_database %}
       <tr><td>{{movie.id}}. {{ movie.movie_title }} : {{ movie.year }}</tr></td>
     {% endfor %}
-  </table>
+</table>
+-->
 </div>
-<!--{{value|linebreaks}}
-{{request.user}}-->
-
 {% endblock %}
 
 

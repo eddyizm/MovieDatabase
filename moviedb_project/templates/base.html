@@ -11,7 +11,7 @@
     <body>
     <title>{{title}}</title>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="/home/">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,10 +19,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'create' %}">Create <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'create' %}">Create <span class="sr-only">Create</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/search/">Search</a>
+            <a class="nav-link" href="{% url 'search' %}">Search</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -37,14 +37,6 @@
     <h1>{{title}}</h1>
     {% block content %}
     {% endblock %}
-    <!--<table>
-      {% for key, value in NameFormModel %}
-        <tr>
-            <td>{{ key|title }}</td>
-            <td>{{ value }}</td>
-        </tr>
-      {% endfor %}
-    </table>-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -5,6 +5,9 @@ from .models import MovieEntry, SearchFormModel
 import json, os, requests
 from datetime import datetime
 from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse
+#from django_tables2 import SingleTableView
+#from .tables import MovieTable
 # Create your views here.
 database = []
 
@@ -31,19 +34,29 @@ def create(request):
             with open('moviedatabase.json','w') as outfile:
                 json.dump(data,outfile)
             # This is just to show a response to the user. You can render another form here instead of the default form. This is your chance to return a templated list instead but this should get you on the right road.
-            #return HttpResponse(str(data))
-            #return render (request, 'form.html',{'form':form})
+            return redirect('create')
+        #return render (request, 'form.html',{'form':form})
+        
     if request.method == "GET":
         form = MovieForm()
-    return render(request, 'form.html',{'form':form})
+        return render (request, 'form.html',{'form':form})
+    #return render(request, 'form.html',{'form':form})
+    
 
 
 def home(request):
     movie_database = MovieEntry.objects.all()
-    #return render (request, 'form.html',{'form':form,'entries':entries})
     return render(request, 'home.html',{'movie_database':movie_database})
 
-'''def movie_edit(request, id):
+'''
+class CustomMovieTable(SingleTableView):
+    model = MovieEntry
+    table_class = MovieTable
+    template_name = 'moviemanager/templates/home.hmtl'
+'''
+
+
+'''def edit(request, id):
     movie_id = int(id)
     try:
         movie_choice = NameFormModel.objects.get(id = movie_id)
@@ -53,18 +66,10 @@ def home(request):
         form = NameForm(request.POST or None, instance = movie_id)
     if form.is_valid():
         form.save()
-    return render(request, 'form.html',{'form':form})
+    return render(request, 'form.html',{'form':form})'''
 
 
 def search(request):
     search = SearchFormModel(request.POST)
-    entries = NameFormModel.objects.all().order_by('movie_title')
-    return render (request, 'search.html',{'search':search,'entries':entries})'''
-
-def about_page(request):
-    page_tile = "About title"
-    return render(request, "about.html",{"title":page_tile})
-
-def contact_page(request):
-    contact_title = "Contact title"
-    return render(request, "contact.html",{"title":contact_title})
+    entries = MovieEntry.objects.all().order_by('movie_title')
+    return render (request, 'search.html',{'search':search,'entries':entries})

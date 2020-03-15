@@ -25,7 +25,6 @@ database_filters = (
     ('spec', 'Spec')
 )
 
-
 #class NameFormModel(models.Model):
 class MovieEntry(models.Model):        
     min_year = 1900
@@ -43,6 +42,6 @@ class MovieEntry(models.Model):
     language = models.CharField(max_length = 100, blank = True)
     date_watched = models.DateField(auto_now=False, auto_now_add=False)
     spec = models.CharField(max_length = 100, blank = True)
-
+    extra_column = 'Actions'
 class SearchFormModel(models.Model):
     search_filter = models.CharField(max_length = 100, choices=database_filters, default = 'Filter')

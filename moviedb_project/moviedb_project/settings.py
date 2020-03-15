@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'moviemanager',
+    'django_tables2',
+    'moviemanager'
 ]
 
 MIDDLEWARE = [
