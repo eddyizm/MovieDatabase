@@ -8,7 +8,8 @@
 <div class="container">
   <div class = "row">
     <div class = "col-md-6">
-      <form action= {% url 'create' %} method="POST">
+      <input type = "text" placeholder = "Search">
+        <form action="search" method="post">
         {%csrf_token%}
           <div class = "form-group">
           {{ form|crispy }}
@@ -19,10 +20,10 @@
     <div class ="col-md-6">
       <h2> {{ text }} </h2>
       <table>
-      {% for entries in entries %}
-        <tr><td> {{ entries.movie_title }} : {{ entries.year }}</tr></td>
-      {% endfor %}
-    </table>
+        {% for entries in entries %}
+          <tr><td> {{ entries.movie_title }} : {{ entries.year }}</tr></td>
+        {% endfor %}
+      </table>
   </div>
   </div>
 </div>

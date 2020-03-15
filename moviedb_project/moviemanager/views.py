@@ -53,13 +53,13 @@ def home(request):
         form = NameForm(request.POST or None, instance = movie_id)
     if form.is_valid():
         form.save()
-    return render(request, 'form.html',{'form':form})
+    return render(request, 'form.html',{'form':form})'''
 
 
 def search(request):
     search = SearchFormModel(request.POST)
-    entries = NameFormModel.objects.all().order_by('movie_title')
-    return render (request, 'search.html',{'search':search,'entries':entries})'''
+    entries = MovieEntry.objects.all().order_by('movie_title')
+    return render (request, 'search.html',{'search':search,'entries':entries})
 
 def about_page(request):
     page_tile = "About title"
