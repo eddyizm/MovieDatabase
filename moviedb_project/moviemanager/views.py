@@ -43,7 +43,7 @@ def home(request):
     #return render (request, 'form.html',{'form':form,'entries':entries})
     return render(request, 'home.html',{'movie_database':movie_database})
 
-'''def movie_edit(request, id):
+def edit(request, id):
     movie_id = int(id)
     try:
         movie_choice = NameFormModel.objects.get(id = movie_id)
@@ -53,18 +53,10 @@ def home(request):
         form = NameForm(request.POST or None, instance = movie_id)
     if form.is_valid():
         form.save()
-    return render(request, 'form.html',{'form':form})'''
+    return render(request, 'form.html',{'form':form})
 
 
 def search(request):
     search = SearchFormModel(request.POST)
     entries = MovieEntry.objects.all().order_by('movie_title')
     return render (request, 'search.html',{'search':search,'entries':entries})
-
-def about_page(request):
-    page_tile = "About title"
-    return render(request, "about.html",{"title":page_tile})
-
-def contact_page(request):
-    contact_title = "Contact title"
-    return render(request, "contact.html",{"title":contact_title})

@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
+from fontawesome_5.fields import IconField
 # Create your models here.
 
 #current_year = datetime.date.today().year
@@ -25,8 +26,6 @@ database_filters = (
     ('spec', 'Spec')
 )
 
-
-#class NameFormModel(models.Model):
 class MovieEntry(models.Model):        
     min_year = 1900
     #max_year = datetime.datetime.year

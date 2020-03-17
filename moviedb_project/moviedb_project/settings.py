@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'moviemanager',
+    'django_tables2',
+    'fontawesome_5'
 ]
 
 MIDDLEWARE = [
