@@ -33,7 +33,6 @@ class MovieEntry(models.Model):
     dvd_name = models.CharField(max_length = 100, blank = True)
     form_field = models.CharField(max_length = 100, blank = True)
     genre = models.CharField(max_length = 100, blank = True)
-    #year_field = models.DateField(auto_now=False, auto_now_add=False)
     year = models.IntegerField(blank = True, default = min_year, validators = [MinValueValidator(min_year), MaxValueValidator(max_year())])
     alt_title_1 = models.CharField(max_length = 100, blank = True)
     alt_title_2 = models.CharField(max_length = 100, blank = True)

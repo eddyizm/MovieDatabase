@@ -45,14 +45,15 @@ def home(request):
 
 def edit(request, id):
     movie_id = int(id)
-    try:
-        movie_choice = NameFormModel.objects.get(id = movie_id)
-    except NameFormModel.DoesNotExist:
+    form = MovieForm(request.POST)
+    '''try:
+        movie_choice = MovieEntry.objects.get(id = movie_id)
+    except MovieEntry.DoesNotExist:
         return redirect('moviemanager')
     if request.method == 'POST':
-        form = NameForm(request.POST or None, instance = movie_id)
+        form = MovieEntry(request.POST or None, instance = movie_id)
     if form.is_valid():
-        form.save()
+        form.save()'''
     return render(request, 'form.html',{'form':form})
 
 
